@@ -1,0 +1,7 @@
+Endless Runner
+- Eindeloos scrollende achtergrond
+- Levels met verschillende achtergronden
+- Karakter kan springen en tijdelijk vliegen
+- Karakter kan powerups oppakken
+- Karakter moet obstakels ontwijken
+- Oplopende moeilijkheidsgraad door meer obstakels of hogere snelheid
