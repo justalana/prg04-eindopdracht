@@ -1,6 +1,6 @@
 import { Actor, Engine, Vector, Keys } from 'excalibur'
 import { Resources, ResourceLoader } from './resources.js'
-import { Fish } from './fish.js'
+import { Fish } from './object.js'
 import { Coin } from './coin.js'
 
 export class Player extends Actor {
@@ -14,7 +14,7 @@ export class Player extends Actor {
         this.health = 100
 
         this.graphics.use(Resources.Player.toSprite());
-        this.pos = new Vector(400, 400);
+        this.pos = new Vector(150, 400);
         this.vel = new Vector(0, 0);
 
         this.on('collisionstart', (event) => this.hitSomething(event))
@@ -26,15 +26,11 @@ export class Player extends Actor {
         let yspeed = 0;
     
         if (engine.input.keyboard.isHeld(Keys.W) || engine.input.keyboard.isHeld(Keys.Up)) {
-          yspeed = -100;
-        }
-    
-        if (engine.input.keyboard.isHeld(Keys.S) || engine.input.keyboard.isHeld(Keys.Down)) {
-          yspeed = 100;
+          // yspeed = -100;
         }
     
         if (engine.input.keyboard.isHeld(Keys.D) || engine.input.keyboard.isHeld(Keys.Right)) {
-          xspeed = 100
+          xspeed = 50
         }
     
         if (engine.input.keyboard.isHeld(Keys.A) || engine.input.keyboard.isHeld(Keys.Left)) {
