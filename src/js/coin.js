@@ -1,4 +1,4 @@
-import { Actor, Engine, Vector, Keys } from 'excalibur'
+import { Actor, Engine, Vector, Keys, Sprite, SpriteSheet } from 'excalibur'
 import { Resources, ResourceLoader } from './resources.js'
 
 export class Coin extends Actor {

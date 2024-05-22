@@ -1,4 +1,4 @@
-import { Actor, Engine, Vector, Keys, Sprite } from 'excalibur'
+import { Actor, Engine, Vector, Keys, Sprite, SpriteSheet } from 'excalibur'
 import { Resources, ResourceLoader } from './resources.js'
 
 export class Background extends Actor {
