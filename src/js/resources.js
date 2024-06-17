@@ -3,6 +3,7 @@ import { ImageSource, ImageWrapping, Sound, Resource, Loader, FontSource } from 
 const Resources = {
     Fish: new ImageSource('images/fish.png'),
     Player: new ImageSource('images/fox.png'),
+    Heart: new ImageSource('images/heart.png'),
     Coin: new ImageSource('images/coin.png'),
     Background: new ImageSource('images/background.png', { wrapping: ImageWrapping.Repeat}),
 
@@ -11,6 +12,7 @@ const Resources = {
 const ResourceLoader = new Loader([
     Resources.Fish,
     Resources.Player,
+    Resources.Heart,
     Resources.Coin,
     Resources.Background,
     Resources.PixelFont

@@ -3,7 +3,7 @@ import { Resources, ResourceLoader } from './resources.js'
 
 export class Background extends Actor {
 
-    sprite
+    sprite 
 
     onInitialize(engine){
         this.sprite = new Sprite({
@@ -15,7 +15,7 @@ export class Background extends Actor {
     }
 
     onPostUpdate(engine, delta) {
-        this.sprite.sourceView.x += .05 * delta;
+        this.sprite.sourceView.x += .2 * delta;
     }
 
 }
