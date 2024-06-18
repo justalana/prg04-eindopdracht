@@ -14,7 +14,7 @@ export class Game extends Engine {
     constructor() {
         super({ width: 1280, height: 742, 
             physics: {
-                gravity: new Vector(0, 20000),
+                gravity: new Vector(0, 2000),
             }
          })
         this.start(ResourceLoader).then(() => this.startGame())

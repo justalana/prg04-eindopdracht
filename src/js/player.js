@@ -8,7 +8,7 @@ export class Player extends Actor {
 
   constructor() {
     super({width: 96, height:96, collisionType: CollisionType.Active})
-    this.body.mass = 50
+    this.body.mass = 200
   }
 
   onInitialize(engine) {
@@ -24,7 +24,7 @@ export class Player extends Actor {
   }
 
     
-  onPreUpdate(engine) {
+  onPreUpdate(engine, delta) {
     let xspeed = 0;
     let yspeed = 0;
     
@@ -33,12 +33,6 @@ export class Player extends Actor {
       if (this.grounded) {
         this.actions.moveTo(new Vector(300, 450),900)
         this.grounded = false
-        // yspeed = -1000
-        // if (this.pos >= (300, 500)) {
-        //   this.grounded = false
-        //   console.log('false')
-        // }
-        
       }
     }
     
@@ -50,7 +44,7 @@ export class Player extends Actor {
     }
 
     
-    this.vel = new Vector(xspeed, yspeed);
+    // this.vel = new Vector(xspeed, yspeed);
 
   }
 
