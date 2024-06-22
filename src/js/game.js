@@ -5,7 +5,7 @@ import { Player } from './player.js'
 import { Background } from './background.js'
 import { Intro } from './scene'
 import { GameScene } from './scene'
-// import { GameOver } from './scene'
+import { GameOver } from './scene'
 
 export class Game extends Engine {
 
@@ -31,12 +31,8 @@ export class Game extends Engine {
         const gameScene = new GameScene()
         this.add('game', gameScene)
 
-        // const gameOver = new GameOver()
-        // this.add('gameOver', gameOver)
-
-        // for(let i = 0; i <20; i++) {
-        //     this.createCoin()
-        // }
+        const gameOver = new GameOver()
+        this.add('gameOver', gameOver)
     }
 
 }

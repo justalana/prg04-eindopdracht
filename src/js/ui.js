@@ -3,7 +3,7 @@ import { Resources } from './resources.js'
 import { Heart } from "./hearts.js"
 
 export class UI extends ScreenElement {
-    constructor(game, engine) {
+    constructor(engine) {
         super()
         this.hearts = []
         this.score = 0
@@ -50,16 +50,13 @@ export class UI extends ScreenElement {
     counter(engine) {
         this.score++
         this.updateScore()
-        // if (this.score === 0) {
-        //     engine.goToScene('levelEnd')
-        // }
     }
 
     updateScore() {
         this.scoreText.text = `Score: ${this.score}`
     }
 
-    reduceHealth(engine) {
+    reduceHealth() {
         if (this.hearts.length > 0) {
             const heart = this.hearts.pop()
             heart.kill()
