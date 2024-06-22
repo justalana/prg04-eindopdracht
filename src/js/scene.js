@@ -67,8 +67,8 @@ export class Intro extends Scene {
 }
 
 export class GameScene extends Scene {
+
     onInitialize(engine) {
-        // this.bushes = []
         this.createBackground()
 
         const ground = new Ground()
@@ -77,16 +77,13 @@ export class GameScene extends Scene {
         const player = new Player()
         this.add(player)
 
-        // const bush = new Bush()
-        // this.add(bush)
-
-        this.timer = new Timer({
+        this.addBush = new Timer({
             fcn: () => this.createBush(),
             interval: 3000,
             repeats: true
         })
-        this.add(this.timer)
-        this.timer.start()
+        this.add(this.addBush)
+        this.addBush.start()
 
         this.ui = new UI(this, engine)
         this.add(this.ui)
@@ -111,8 +108,8 @@ export class GameScene extends Scene {
             this.ui.updateScore(this.engine.score)
         }
 
-        if (this.engine.score === 20) {
-            this.engine.goToScene('gameOver')
-        }
+        // if (this.engine.score === 20) {
+        //     this.engine.goToScene('gameOver')
+        // }
     }
 }

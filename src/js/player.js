@@ -15,7 +15,6 @@ export class Player extends Actor {
     this.pos = new Vector(300, 680);
     
 
-    this.score = 0
     this.health = 100
     this.grounded = true
 

@@ -1,17 +1,19 @@
-import { ScreenElement, Label, Font, FontUnit, Vector, Color } from "excalibur"
+import { ScreenElement, Label, Font, FontUnit, Vector, Color, Timer } from "excalibur"
 import { Resources } from './resources.js'
 import { Heart } from "./hearts.js"
 
 export class UI extends ScreenElement {
     constructor(game, engine) {
         super()
-        this.engine = engine
         this.hearts = []
+        this.score = 0
+        this.timeLeft = 6
+        this.engine = engine
     }
 
     onInitialize(engine) {
         this.scoreText = new Label({
-            text: `Score: ${engine.score}`,
+            text: `Score: ${this.score}`,
             pos: new Vector(70, 30),
             font: new Font({
                 family: 'impact',
@@ -22,6 +24,18 @@ export class UI extends ScreenElement {
         })
         this.addChild(this.scoreText)
 
+        const self = this
+
+        this.timer = new Timer({
+            fcn: function () {
+                self.counter(engine)
+            },
+            interval: 1000,
+            repeats: true
+        })
+        engine.add(this.timer)
+        this.timer.start()
+
         for (let i = 0; i < 3; i++) {
             const heart = new Heart()
             heart.graphics.use(Resources.Heart.toSprite())
@@ -30,11 +44,19 @@ export class UI extends ScreenElement {
             this.hearts.push(heart)
         }
 
-        engine.on('ghost-exit', () => this.reduceHealth(engine))
+        engine.on('bush-exit', () => this.reduceHealth(engine))
     }
 
-    updateScore(score) {
-        this.scoreText.text = `Score: ${score}`
+    counter(engine) {
+        this.score++
+        this.updateScore()
+        // if (this.score === 0) {
+        //     engine.goToScene('levelEnd')
+        // }
+    }
+
+    updateScore() {
+        this.scoreText.text = `Score: ${this.score}`
     }
 
     reduceHealth(engine) {

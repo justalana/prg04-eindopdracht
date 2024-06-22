@@ -15,19 +15,13 @@ export class Bush extends Actor {
       this.pos = new Vector(1200, 680);
       this.actions.moveTo(new Vector(-60, 680), 200)
   
-      this.on('collisionstart', (event) => this.hitSomething(event))
+      this.on('collisionstart', (event) => this.hitSomething(event, engine))
       this.on('exitviewport', () => this.kill())
     }
   
-      
-    onPreUpdate(engine, delta) {
-
-  
-    }
-  
-    hitSomething(event) {
+    hitSomething(event, engine) {
       if(event.other instanceof Player) {
-        console.log(`hit bush`)
+        engine.emit('bush-exit', { Bush: this })
         this.kill()
       } 
       if(event.other instanceof Ground) {
