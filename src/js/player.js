@@ -1,8 +1,7 @@
 import { Actor, Engine, Vector, Keys, Sprite, Input, CollisionType, Shape } from 'excalibur'
 import { Resources, ResourceLoader } from './resources.js'
-import { Fish } from './object.js'
-import { Coin } from './coin.js'
 import { Ground } from './ground.js'
+import { Bush } from './bush.js'
 
 export class Player extends Actor {
 
@@ -31,14 +30,11 @@ export class Player extends Actor {
     
     if (engine.input.keyboard.isHeld(Keys.W) || engine.input.keyboard.isHeld(Keys.Up)) {
       if (this.grounded) {
-        this.actions.moveTo(new Vector(300, 450),900)
+        this.actions.moveTo(new Vector(300, 450),600)
         this.grounded = false
       }
     }
     
-    // if (engine.input.keyboard.isHeld(Keys.D) || engine.input.keyboard.isHeld(Keys.Right)) {
-    //   xspeed = 50
-    // }
     if (engine.input.keyboard.isHeld(Keys.S) || engine.input.keyboard.isHeld(Keys.Down)) {
       yspeed = 500
     }

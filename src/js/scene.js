@@ -3,9 +3,8 @@ import { Resources } from './resources.js'
 import { Background } from './background.js'
 import { Player } from './player.js'
 import { Ground } from './ground.js'
-// import { Ghost } from './ghost.js'
-// import { Canon1 } from './canon_1.js'
 import { UI } from './ui.js'
+import { Bush } from './bush.js'
 
 export class Intro extends Scene {
     onInitialize(engine) {
@@ -22,7 +21,7 @@ export class Intro extends Scene {
         engine.add(this.title)
 
         this.instructions = new Label({
-            text: 'Use ASWD or arrows to walk, press space to jump',
+            text: 'Press W to jump',
             pos: new Vector(30, 200),
             font: new Font({
                 family: 'impact',
@@ -69,6 +68,7 @@ export class Intro extends Scene {
 
 export class GameScene extends Scene {
     onInitialize(engine) {
+        // this.bushes = []
         this.createBackground()
 
         const ground = new Ground()
@@ -77,16 +77,16 @@ export class GameScene extends Scene {
         const player = new Player()
         this.add(player)
 
-        
+        // const bush = new Bush()
+        // this.add(bush)
 
-        // this.timer = new Timer({
-        //     fcn: () => this.createGhost(),
-        //     interval: 700,
-        //     repeats: true
-        // })
-        // this.on('ghost-killed', () => this.addPoint())
-        // this.add(this.timer)
-        // this.timer.start()
+        this.timer = new Timer({
+            fcn: () => this.createBush(),
+            interval: 3000,
+            repeats: true
+        })
+        this.add(this.timer)
+        this.timer.start()
 
         this.ui = new UI(this, engine)
         this.add(this.ui)
@@ -97,6 +97,12 @@ export class GameScene extends Scene {
     createBackground() {
         const bg = new Background(Resources.Background.toSprite())
         this.add(bg)
+    }
+
+    createBush() {
+        const bush = new Bush()
+        this.add(bush)
+        // this.bushes.push(bush)
     }
 
     updateScore() {

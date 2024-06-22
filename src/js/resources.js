@@ -5,6 +5,7 @@ const Resources = {
     Player: new ImageSource('images/fox.png'),
     Heart: new ImageSource('images/heart.png'),
     Coin: new ImageSource('images/coin.png'),
+    Bush: new ImageSource('images/bush.png'),
     Background: new ImageSource('images/background.png', { wrapping: ImageWrapping.Repeat}),
 
     PixelFont: new FontSource('fonts/PressStart2P-Regular.ttf', 'PressStart')
@@ -14,6 +15,7 @@ const ResourceLoader = new Loader([
     Resources.Player,
     Resources.Heart,
     Resources.Coin,
+    Resources.Bush,
     Resources.Background,
     Resources.PixelFont
 ])
