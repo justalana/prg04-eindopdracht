@@ -4,7 +4,7 @@ import { Resources, ResourceLoader } from './resources.js'
 export class Ground extends Actor {
 
     constructor() {
-      super({width: 1300, height:1, color: Color.Azure})
+      super({width: 1300, height:1})
       this.body.collisionType = CollisionType.Fixed
     }
 
