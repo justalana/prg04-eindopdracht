@@ -34,9 +34,9 @@ export class Player extends Actor {
       }
     }
     
-    if (engine.input.keyboard.isHeld(Keys.S) || engine.input.keyboard.isHeld(Keys.Down)) {
-      yspeed = 500
-    }
+    // if (engine.input.keyboard.isHeld(Keys.S) || engine.input.keyboard.isHeld(Keys.Down)) {
+    //   yspeed = 500
+    // }
 
     
     // this.vel = new Vector(xspeed, yspeed);
