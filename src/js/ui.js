@@ -56,14 +56,14 @@ export class UI extends ScreenElement {
         this.scoreText.text = `Score: ${this.score}`
     }
 
-    reduceHealth() {
+    reduceHealth(game) {
         if (this.hearts.length > 0) {
             const heart = this.hearts.pop()
             heart.kill()
         }
 
         if (this.hearts.length === 0) {
-            this.engine.goToScene('gameOver')
+            game.goToScene('gameOver')
         }
     }
 }

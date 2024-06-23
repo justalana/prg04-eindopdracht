@@ -117,7 +117,7 @@ export class GameScene extends Scene {
 export class GameOver extends Scene {
     onInitialize(engine) {
         this.gameover = new Label({
-            text: 'You got bushed',
+            text: 'Ohnoo! You ran into too many bushes :(',
             pos: new Vector(30, 200),
             font: new Font({
                 family: 'impact',
